@@ -1,0 +1,25 @@
+name: Idea
+description: Suggest an improvement
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - DattoRMM
+        - NOC
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to change or add?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would it help?
