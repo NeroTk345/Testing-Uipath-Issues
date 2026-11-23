@@ -2,9 +2,14 @@
 
 This branch covers feedback, questions, bug reports and version information for the **NOC** configuration tooling that the consultants use.
 
-NOC is a separate product from DattoRMM. It sets up the NOC configuration in a Datto RMM environment. For DattoRMM, use the DattoRMM branch.
+NOC is a separate product from DattoRMM. It sets up the NOC configuration in a Datto RMM environment. For DattoRMM, use the [DattoRMM branch](https://github.com/NeroTk345/Testing-Uipath-Issues/tree/DattoRmm).
 
 Use it to tell us what works, what does not, and what you would like to see improved. Every report is tracked, so nothing gets lost in chat or email.
+
+[🐞 Report a bug](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=bug.yml) ·
+[❓ Ask a question](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=question.yml) ·
+[💡 Suggest an idea](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=idea.yml) ·
+[📋 Changelog](CHANGELOG.md)
 
 ---
 
@@ -15,6 +20,18 @@ Use it to tell us what works, what does not, and what you would like to see impr
 3. Choose product **NOC**.
 4. Fill in the app version, process version and environment.
 5. Submit.
+
+---
+
+## Documentation
+
+| Page | What you find there |
+|---|---|
+| [NOC reference](docs/noc-reference.md) | How the NOC process is built, each option, and how security levels work |
+| [User guide](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/user-guide.md) | How to run an onboarding, step by step |
+| [Troubleshooting](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/troubleshooting.md) | Common errors and what to do |
+| [Release process](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/release-process.md) | How a new version reaches PROD |
+| [Changelog](CHANGELOG.md) | What changed in each version |
 
 ---
 
@@ -159,3 +176,16 @@ For access requests, policy questions or anything that is not about the tooling 
 ## Note on visibility
 
 This repository may be visible to people outside the team. Do not put internal details, credentials or customer information in issues, comments, release notes or files.
+
+---
+
+## Release checklist
+
+Use this list every time a new version of the NOC process is released.
+
+1. Pick the next version number using MAJOR.MINOR.PATCH (see Versions above).
+2. Test the process in DEV, then TEST. Note the results. Pay extra attention to components that restart services.
+3. Add a new entry at the top of `CHANGELOG.md`: version, date, environment, process name, and what is New, Changed, Fixed, Known issues and Action needed.
+4. Check that the process name in the changelog matches the name in Orchestrator.
+5. Create a GitHub Release with `.github/release/RELEASE_TEMPLATE.md`. Tag: `noc-v<VERSION>`, target branch `NOC`.
+6. Tell the team in the issue tracker or in chat that the release is live.
