@@ -1,1 +1,11 @@
 blank_issues_enabled: false
+contact_links:
+  - name: 📘 User guide
+    url: https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/user-guide.md
+    about: Step-by-step guide to running an onboarding with the Professional Services Toolkit.
+  - name: 🛠️ Troubleshooting
+    url: https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/troubleshooting.md
+    about: Common errors and how to solve them. Check here before opening a bug.
+  - name: 🔒 Leaked a token or customer data?
+    url: https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/SECURITY.md
+    about: Do not open a public issue. Follow the steps in the security policy.

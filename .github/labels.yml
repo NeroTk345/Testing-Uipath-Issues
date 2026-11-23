@@ -1,0 +1,60 @@
+# Label definitions for this repository.
+# Synced automatically by .github/workflows/label-sync.yml when this file changes on main.
+
+# --- Type ---
+- name: bug
+  color: "d73a4a"
+  description: Something does not work as expected
+- name: question
+  color: "d876e3"
+  description: A question about how something works
+- name: idea
+  color: "a2eeef"
+  description: A suggestion for improvement or a new feature
+- name: documentation
+  color: "0075ca"
+  description: Improvements or additions to the documentation
+
+# --- Product ---
+- name: DattoRMM
+  color: "1d76db"
+  description: About the DattoRMM onboarding tooling
+- name: NOC
+  color: "5319e7"
+  description: About the NOC configuration tooling
+
+# --- Environment ---
+- name: "env: PROD"
+  color: "b60205"
+  description: Reported in the live production environment
+- name: "env: TEST"
+  color: "fbca04"
+  description: Reported in the test environment
+- name: "env: DEV"
+  color: "c5def5"
+  description: Reported in the development environment
+
+# --- Priority ---
+- name: "priority: high"
+  color: "b60205"
+  description: Blocks an onboarding, needs attention first
+- name: "priority: medium"
+  color: "fbca04"
+  description: Workaround available
+- name: "priority: low"
+  color: "0e8a16"
+  description: Minor or cosmetic
+
+# --- Status ---
+- name: needs-triage
+  color: "ededed"
+  description: New, not yet reviewed
+- name: needs-info
+  color: "f9d0c4"
+  description: Waiting for more information from the reporter
+- name: duplicate
+  color: "cfd3d7"
+  description: Already reported in another issue
+- name: wontfix
+  color: "ffffff"
+  description: Will not be changed

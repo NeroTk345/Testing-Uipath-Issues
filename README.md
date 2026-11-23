@@ -1,14 +1,61 @@
-# Testing-Uipath-Issues
+<div align="center">
 
-This repository is the central place for feedback, questions, bug reports and version information about the **DattoRMM** and **NOC** tooling that the consultants use during onboarding.
+# Professional Services Toolkit · Feedback & Docs
 
-Use it to tell us what works, what does not, and what you would like to see improved. Every report is tracked, so nothing gets lost in chat or email.
+**Feedback, questions, bug reports and documentation for the DattoRMM and NOC onboarding tooling.**
+
+[![Validate files](https://github.com/NeroTk345/Testing-Uipath-Issues/actions/workflows/validate.yml/badge.svg)](https://github.com/NeroTk345/Testing-Uipath-Issues/actions/workflows/validate.yml)
+[![Open issues](https://img.shields.io/github/issues/NeroTk345/Testing-Uipath-Issues?label=open%20issues)](https://github.com/NeroTk345/Testing-Uipath-Issues/issues)
+[![Open bugs](https://img.shields.io/github/issues/NeroTk345/Testing-Uipath-Issues/bug?label=open%20bugs&color=d73a4a)](https://github.com/NeroTk345/Testing-Uipath-Issues/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+[🐞 Report a bug](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=bug.yml) ·
+[❓ Ask a question](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=question.yml) ·
+[💡 Suggest an idea](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=idea.yml) ·
+[📘 User guide](docs/user-guide.md)
+
+</div>
+
+---
+
+## What is this?
+
+The **Professional Services Toolkit** is a UiPath app that sets up Kaseya environments with our standard best-practice configuration. It replaces the old PowerShell scripts: you tick what you need, click **Start**, and a robot does the rest.
+
+This repository is the central place to tell us what works, what does not, and what you would like to see improved. Every report is tracked, so nothing gets lost in chat or email.
+
+| Product | What it does | Details |
+|---|---|---|
+| **DattoRMM** | Sets up a new Datto RMM environment: UDF labels, site and device groups, filters, components, policies, jobs, reports and dashboards | [DattoRMM branch](https://github.com/NeroTk345/Testing-Uipath-Issues/tree/DattoRmm) |
+| **NOC** | Prepares a Datto RMM environment for Kaseya 24/7 NOC monitoring: UDF labels, security levels, device filters, policies and NOC components | [NOC branch](https://github.com/NeroTk345/Testing-Uipath-Issues/tree/NOC) |
+
+---
+
+## Contents
+
+- [Documentation](#documentation)
+- [Environments](#environments)
+- [Versions](#versions)
+- [How to report](#how-to-report)
+- [What never to include](#what-never-to-include)
+- [Labels and status](#labels-and-status)
+- [Repository structure](#repository-structure)
+- [Contact](#contact)
+
+---
+
+## Documentation
+
+| For | Page |
+|---|---|
+| Consultants | [User guide](docs/user-guide.md) · [Troubleshooting](docs/troubleshooting.md) |
+| Developers and admins | [Architecture](docs/architecture.md) · [Release process](docs/release-process.md) · [Roles and permissions](docs/roles-and-permissions.md) |
+| Contributors | [Contributing](CONTRIBUTING.md) · [Security policy](SECURITY.md) |
 
 ---
 
 ## Environments
 
-The tooling runs in three environments. Always state which one you were using in your report.
+The tooling runs in three environments. Always state which one you used in your report.
 
 | Environment | Purpose | Who uses it |
 |---|---|---|
@@ -33,106 +80,77 @@ Every release has a version number in the form **MAJOR.MINOR.PATCH**, for exampl
 There are two kinds of version, and both matter:
 
 - **App version**: the version of the app that consultants open (for example `Kaseya-Tool-PROD 2.0.0`).
-- **Process version**: the version of the automation behind it (for example `Dattormm-Onboarding-Automation 1.0.10`).
+- **Process version**: the version of the automation behind it (for example `Dattormm-Onboarding-Automation 1.1.2`).
 
-### What to put in your report
+Always include both, plus the environment, when you report a problem. If you do not know them, write "unknown" and say where you opened the tool. Do not guess.
 
-Always include both versions when you report a problem:
-
-- App version (shown in the app or in Orchestrator under **Apps**)
-- Process version (shown in Orchestrator under **Processes**)
-- Environment (DEV, TEST or PROD)
-
-If you do not know the versions, write "unknown" and say where you opened the tool. Do not guess.
+What changed in each version? See the **Releases** section and the `CHANGELOG.md` on each product branch.
 
 ---
 
-## Release notes
+## How to report
 
-Every new version gets a short release note, written in English, in the Releases section of this repository.
+1. **Search first.** Check the [open issues](https://github.com/NeroTk345/Testing-Uipath-Issues/issues) and the latest release note. If it is already reported, add your details there.
+2. Click **New issue** and pick a form:
 
-Each release note contains:
+   | Form | Use it when |
+   |---|---|
+   | 🐞 **Bug** | Something does not work the way it should |
+   | ❓ **Question** | You want to know how something works |
+   | 💡 **Idea** | You have a suggestion to improve the tool |
 
-- **Version** and **date**
-- **Environment** it was deployed to
-- **New**: what was added
-- **Changed**: what works differently now
-- **Fixed**: what was repaired
-- **Known issues**: what still does not work
-- **Action needed**: anything the consultant must do differently, if any
+3. Fill in every required field. Labels for product, environment and priority are added **automatically** from your answers.
+4. One issue per problem. Three problems? Three issues.
 
-Keep it short. One line per item is enough.
-
----
-
-## Before you report
-
-Check the open issues first. Someone may already have reported the same problem, and you can add your details to that issue instead of creating a new one.
-
-If the problem appeared after a new version was released, check its release note first. It may be a known issue.
-
----
-
-## How to create an issue
-
-1. Go to the **Issues** tab.
-2. Click **New issue**.
-3. Choose the template that fits best:
-
-| Template | Use it when |
-|---|---|
-| **Bug** | Something does not work the way it should |
-| **Question** | You want to know how something works or how to do something |
-| **Idea** | You have a suggestion to improve the tool |
-
-4. Fill in every required field. Choose the product: **DattoRMM**, **NOC** or **Not sure**.
-5. Fill in the app version, process version and environment.
-6. Submit the issue.
-
-One issue per problem keeps things trackable. If you have three separate problems, create three issues.
-
----
-
-## What to include
-
-A good report makes it much faster to help you. Where possible, include:
-
-- **Versions and environment** (see above)
-- **What you did**, step by step
-- **What you expected** to happen
-- **What actually happened**
-- **The log line** from the run log, or a screenshot of the error
-- **The run settings** you used (for example, which checkboxes were ticked)
-- **Whether it happens every time** or only sometimes
+A good report contains: versions and environment, what you did step by step, what you expected, what happened, the run log lines, and whether it happens every time.
 
 ---
 
 ## What never to include
 
-- **API tokens, keys or passwords.** Not in the text, not in a screenshot, not in a log line. If a token was posted by accident, tell the repository owner straight away so it can be replaced.
-- **Customer names, site names or personal data.** Replace them with a placeholder such as `[customer]` or `[site]`.
-- **Full screenshots that show tokens or customer information.** Crop or blur them first.
+- **API tokens, keys or passwords.** Not in the text, not in a screenshot, not in a log line.
+- **Customer names, site names or personal data.** Use placeholders such as `[customer]` or `[site]`.
+- **Screenshots that show tokens or customer information.** Crop or blur them first.
+
+Posted something by accident? Follow the [security policy](SECURITY.md) straight away.
 
 ---
 
 ## Labels and status
 
-Issues are sorted with labels:
+| Label | Meaning |
+|---|---|
+| `bug` · `question` · `idea` | Type of report |
+| `DattoRMM` · `NOC` | Product |
+| `env: PROD` · `env: TEST` · `env: DEV` | Environment where it happened |
+| `priority: high` · `priority: medium` · `priority: low` | Impact on your work |
+| `needs-triage` · `needs-info` | Status: new, or waiting for your reply |
 
-- `bug`: something is broken
-- `question`: a question about how something works
-- `idea`: a suggestion for improvement
-- `DattoRMM` / `NOC`: the product the issue is about
+Issues move through the project board: **New → In progress → Done**.
 
-When an issue is picked up, it moves through the project board: **New**, **In progress**, **Done**.
+**Response times:** we aim to read new issues within **one working day**. Problems that block an onboarding should also be raised directly with the tooling owner.
 
 ---
 
-## Response times
+## Repository structure
 
-- We aim to read new issues within **one working day**.
-- Urgent problems that block an onboarding should also be raised directly with the responsible contact person, not only here.
-- If an issue has had no reply after a few days, add a short comment so it gets attention again.
+```text
+main
+├── .github/
+│   ├── ISSUE_TEMPLATE/      Bug, Question and Idea forms
+│   ├── workflows/           Validation, automatic labels, label sync
+│   ├── labels.yml           Label definitions
+│   └── pull_request_template.md
+├── docs/                    User guide, troubleshooting, architecture, release process, roles
+├── CONTRIBUTING.md
+├── SECURITY.md
+└── README.md
+
+DattoRmm                     README, CHANGELOG and release template for DattoRMM
+NOC                          README, CHANGELOG, release template and NOC docs
+```
+
+The automations themselves live in UiPath Studio Web, not in this repository.
 
 ---
 
@@ -140,8 +158,4 @@ When an issue is picked up, it moves through the project board: **New**, **In pr
 
 For access requests, policy questions or anything that is not about the tooling itself, contact: **[contact person]**.
 
----
-
-## Note on visibility
-
-This repository may be visible to people outside the team. Do not put internal details, credentials or customer information in issues, comments, release notes or files.
+> **Visibility:** this repository may be visible to people outside the team. Do not put internal details, credentials or customer information in issues, comments, release notes or files.

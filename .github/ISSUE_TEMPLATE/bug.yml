@@ -1,40 +1,139 @@
-name: Bug
-description: Something isn't working as expected
+name: 🐞 Bug report
+description: Something in the DattoRMM or NOC tooling does not work as expected
 title: "[Bug] "
-labels: ["bug"]
+labels: ["bug", "needs-triage"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. A complete report helps us fix it faster.
+
+        **Never** paste API tokens, passwords, customer names or site names. Replace them with `[token]`, `[customer]` or `[site]`.
+
   - type: dropdown
     id: product
     attributes:
       label: Product
+      description: Which tool were you using?
       options:
         - DattoRMM
         - NOC
         - Not sure
     validations:
       required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where did you start the run? Consultants normally use PROD.
+      options:
+        - PROD
+        - TEST
+        - DEV
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Shown in Orchestrator under Apps. Write "unknown" if you are not sure.
+      placeholder: e.g. 2.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: process-version
+    attributes:
+      label: Process version
+      description: Shown in Orchestrator under Processes. Write "unknown" if you are not sure.
+      placeholder: e.g. 1.1.2
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: components
+    attributes:
+      label: Options you ticked
+      description: Tick every option that was selected when the problem happened.
+      options:
+        - label: UDF labels
+        - label: Site groups
+        - label: Device groups
+        - label: Filters
+        - label: Components (ComStore / custom)
+        - label: Policies
+        - label: Jobs
+        - label: Reports
+        - label: Dashboards
+        - label: Security levels (NOC)
+        - label: K365 add-on (Base + K365)
+
   - type: textarea
     id: happened
     attributes:
       label: What happened?
+      description: Describe the problem in a few sentences.
     validations:
       required: true
+
   - type: textarea
     id: expected
     attributes:
       label: What did you expect?
     validations:
       required: true
-  - type: textarea
-    id: logs
-    attributes:
-      label: Log line or screenshot
-      description: Do not include tokens or customer names.
+
   - type: textarea
     id: steps
     attributes:
       label: Steps to reproduce
       placeholder: |
-        1.
-        2.
-        3.
+        1. Opened the app from PROD
+        2. Ticked Filters and Policies
+        3. Clicked Start
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Run log
+      description: Paste the relevant lines from the run log. Remove tokens and customer names first.
+      render: text
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Sometimes
+        - Only once so far
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      description: How much does this block your work?
+      options:
+        - Blocks an onboarding
+        - Workaround available
+        - Minor / cosmetic
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the open issues and this has not been reported yet.
+          required: true
+        - label: I removed all tokens, passwords and customer information from this report.
+          required: true
