@@ -4,7 +4,12 @@ This branch covers feedback, questions, bug reports and version information for 
 
 Use it to tell us what works, what does not, and what you would like to see improved. Every report is tracked, so nothing gets lost in chat or email.
 
-> Working on NOC? Use the NOC section on the main branch instead.
+> Working on NOC? See the [NOC branch](https://github.com/NeroTk345/Testing-Uipath-Issues/tree/NOC).
+
+[🐞 Report a bug](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=bug.yml) ·
+[❓ Ask a question](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=question.yml) ·
+[💡 Suggest an idea](https://github.com/NeroTk345/Testing-Uipath-Issues/issues/new?template=idea.yml) ·
+[📋 Changelog](CHANGELOG.md)
 
 ---
 
@@ -15,6 +20,18 @@ Use it to tell us what works, what does not, and what you would like to see impr
 3. Choose product **DattoRMM**.
 4. Fill in the app version, process version and environment.
 5. Submit.
+
+---
+
+## Documentation
+
+| Page | What you find there |
+|---|---|
+| [Options reference](docs/components.md) | What each DattoRMM option creates, the run order and what to watch out for |
+| [User guide](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/user-guide.md) | How to run an onboarding, step by step |
+| [Troubleshooting](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/troubleshooting.md) | Common errors and what to do |
+| [Release process](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/release-process.md) | How a new version reaches PROD |
+| [Changelog](CHANGELOG.md) | What changed in each version |
 
 ---
 
