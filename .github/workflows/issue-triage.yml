@@ -1,0 +1,93 @@
+name: Issue triage
+
+# Reads the answers from the issue form and adds labels automatically:
+#   Product      -> DattoRMM / NOC
+#   Environment  -> env: PROD / env: TEST / env: DEV
+#   Impact       -> priority: high / medium / low
+# It also welcomes first-time reporters.
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add labels from issue form
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || "";
+
+            // Issue forms render each field as "### <Label>\n\n<answer>"
+            const answer = (label) => {
+              const re = new RegExp(`###\\s+${label}\\s*\\n+([^\\n]+)`, "i");
+              const m = body.match(re);
+              return m ? m[1].trim() : "";
+            };
+
+            const labels = new Set();
+
+            const product = answer("Product");
+            if (/dattormm/i.test(product)) labels.add("DattoRMM");
+            if (/noc/i.test(product)) labels.add("NOC");
+            if (/both/i.test(product)) { labels.add("DattoRMM"); labels.add("NOC"); }
+
+            const env = answer("Environment");
+            if (/^PROD/i.test(env)) labels.add("env: PROD");
+            if (/^TEST/i.test(env)) labels.add("env: TEST");
+            if (/^DEV/i.test(env)) labels.add("env: DEV");
+
+            const impact = answer("Impact");
+            if (/blocks/i.test(impact)) labels.add("priority: high");
+            else if (/workaround/i.test(impact)) labels.add("priority: medium");
+            else if (/minor/i.test(impact)) labels.add("priority: low");
+
+            if (labels.size === 0) {
+              core.info("No labels to add.");
+              return;
+            }
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              labels: [...labels],
+            });
+            core.info(`Added labels: ${[...labels].join(", ")}`);
+
+  welcome:
+    if: github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome first-time reporters
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const author = context.payload.issue.user.login;
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              creator: author,
+              state: "all",
+              per_page: 2,
+            });
+            if (issues.filter(i => !i.pull_request).length > 1) return;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: [
+                `Thanks for your first report, @${author}! 👋`,
+                "",
+                "We aim to read new issues within one working day.",
+                "If this blocks an onboarding right now, please also contact the tooling owner directly.",
+                "",
+                "Please double-check that the report contains no tokens, passwords or customer names.",
+              ].join("\n"),
+            });
