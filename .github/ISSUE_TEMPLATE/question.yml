@@ -1,8 +1,13 @@
-name: Question
+name: ❓ Question
 description: Ask how something works or how to do something
 title: "[Question] "
-labels: ["question"]
+labels: ["question", "needs-triage"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a look at the [user guide](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/user-guide.md) and the [troubleshooting page](https://github.com/NeroTk345/Testing-Uipath-Issues/blob/main/docs/troubleshooting.md) first. Your answer may already be there.
+
   - type: dropdown
     id: product
     attributes:
@@ -13,14 +18,38 @@ body:
         - Not sure
     validations:
       required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - PROD
+        - TEST
+        - DEV
+        - Not relevant / not sure
+    validations:
+      required: true
+
   - type: textarea
     id: question
     attributes:
       label: Your question
     validations:
       required: true
+
   - type: textarea
     id: context
     attributes:
       label: What have you tried?
-      description: Do not include tokens or customer names.
+      description: Any context helps. Do not include tokens or customer names.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I checked the user guide and the troubleshooting page.
+          required: true
+        - label: I removed all tokens, passwords and customer information.
+          required: true

@@ -1,0 +1,21 @@
+# Categories for automatically generated release notes
+# (Releases > Draft a new release > Generate release notes).
+changelog:
+  exclude:
+    labels:
+      - duplicate
+      - wontfix
+      - question
+  categories:
+    - title: 🚀 New
+      labels:
+        - idea
+    - title: 🐞 Fixed
+      labels:
+        - bug
+    - title: 📘 Documentation
+      labels:
+        - documentation
+    - title: Other changes
+      labels:
+        - "*"

@@ -1,0 +1,6 @@
+# Code owners are requested for review automatically on every pull request.
+# Add more owners by GitHub username, for example:  * @NeroTk345 @other-user
+
+*                @NeroTk345
+/.github/        @NeroTk345
+/docs/           @NeroTk345

@@ -1,8 +1,13 @@
-name: Idea
-description: Suggest an improvement
+name: 💡 Idea
+description: Suggest an improvement or a new feature
 title: "[Idea] "
-labels: ["idea"]
+labels: ["idea", "needs-triage"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Good ideas usually come from daily use. Tell us what would make your onboardings faster or easier.
+
   - type: dropdown
     id: product
     attributes:
@@ -11,15 +16,53 @@ body:
         - DattoRMM
         - NOC
         - Both
+        - New product / other
     validations:
       required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type of idea
+      options:
+        - New option or component
+        - Change to an existing option
+        - Better feedback / run log
+        - App layout or usability
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does it solve?
+      description: Describe the situation you run into today.
+      placeholder: e.g. After every onboarding I still have to create X by hand.
+    validations:
+      required: true
+
   - type: textarea
     id: idea
     attributes:
       label: What would you like to change or add?
     validations:
       required: true
+
   - type: textarea
-    id: why
+    id: today
     attributes:
-      label: Why would it help?
+      label: How do you solve it today?
+      description: Manual steps, the old PowerShell tool, a workaround, ...
+
+  - type: dropdown
+    id: value
+    attributes:
+      label: How much would it help?
+      options:
+        - A lot (saves time on every onboarding)
+        - Somewhat
+        - Nice to have
+    validations:
+      required: true
