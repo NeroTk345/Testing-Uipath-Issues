@@ -161,3 +161,16 @@ For access requests, policy questions or anything that is not about the tooling 
 ## Note on visibility
 
 This repository may be visible to people outside the team. Do not put internal details, credentials or customer information in issues, comments, release notes or files.
+
+## Release checklist
+
+Use this list every time a new version of the DattoRMM process is released.
+
+1. Pick the next version number using MAJOR.MINOR.PATCH (see Versions above).
+2. Test the process in DEV, then TEST. Note the results.
+3. Add a new entry at the top of `CHANGELOG.md`: version, date, environment, process name, and what is New, Changed, Fixed, and Action needed.
+4. Check that the process name in the changelog matches the name in Orchestrator.
+5. Commit to this branch with a short message, for example `Changelog: DattoRMM 1.1.0`.
+6. Tell the team in the issue tracker or in chat that the release is live.
+
+The changelog is the place where consultants look for "what is new". Keep it short and plain.
